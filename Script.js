@@ -37,46 +37,72 @@ const learnerSubmissions = [
   },
 ];
 
-// console.log(learnerSubmissions[1].learnerID)
+//================= First attempt
 
-const grade = learnerSubmissions[0].submission.score;
-const points = AssignmentGroup.assignments[0].points_possible;
+// const grade = learnerSubmissions[0].submission.score;
+// const points = AssignmentGroup.assignments[0].points_possible;
 
-const finalScore = grade / points;
+// const finalScore = grade / points;
 
-// function getLearnerData() {
-//   console.log("Student Number: " + LearnerSubmissions[0].learner_id);
-//   console.log("Assignment Score: " + finalScore);
+// // function getLearnerData() {
+// //   console.log("Student Number: " + LearnerSubmissions[0].learner_id);
+// //   console.log("Assignment Score: " + finalScore);
 
-// }
+// // }
 
 
-// function getLearnerData(){
+// ========================second attempt
+
+// // function getLearnerData(){
 
 let students = {
   student: 0,
-  grades: {
-
-  }
-}
+  grades: {},
+};
 
 // Student Num
-  for ( i = 0; i < learnerSubmissions.length; i++)
-  if(learnerSubmissions[i].learnerId < 510){
-  students['student'] = learnerSubmissions[i].learnerId }
+for (i = 0; i < learnerSubmissions.length; i++)
+  if (learnerSubmissions[i].learnerId < 510) {
+    students["student"] = learnerSubmissions[i].learnerId;
+  }
+
+let grades;
+// student grades
+for (i = 0; i < learnerSubmissions.length; i++)
+  if (learnerSubmissions[i].submission.score >= 0) {
+
+    
+
+    
+    students["grades"] =
+      "Assign #" +
+      learnerSubmissions[i].assignment_id +
+      " - " +
+      learnerSubmissions[i].submission.score +
+      "/" +
+      AssignmentGroup.assignments[0].points_possible;
+
+
+// calculate average
+
+      const allGrades = []
+  for(i = 0; i < learnerSubmissions.length; i++)
+    if ( learnerSubmissions[i].submission.score >= 0)
+    allGrades.push(learnerSubmissions[i].submission.score / AssignmentGroup.assignments[0].points_possible)
+
+    console.log(students);
+    console.log(allGrades);
+  }
+
+
+
+
+// // }
+
 
   
 
-let grades
-// student grades 
-  for (i = 0; i < learnerSubmissions.length; i++)
-      if( learnerSubmissions[i].submission.score >= 0){
-        
-   students['grades'] = "Assign #" + learnerSubmissions[i].assignment_id + " - " + learnerSubmissions[i].submission.score +"/" + AssignmentGroup.assignments[0].points_possible
 
-    }
-
-console.log(students)
+// ============== third attempt
 
 
-// }
