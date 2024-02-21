@@ -1,6 +1,6 @@
 // const CourseInfo = {
-//     id: ,
-//     name:
+//     id: 1,
+//     name: "javascript"
 //   };
 
 const AssignmentGroup = {
@@ -53,11 +53,12 @@ const learnerSubmissions = [
 
 // ========================second attempt
 
-// // function getLearnerData(){
+// function getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions){
 
 let students = {
   student: 0,
-  grades: {},
+  grades: " ",
+  average: 0
 };
 
 // Student Num
@@ -71,7 +72,7 @@ let grades;
 for (i = 0; i < learnerSubmissions.length; i++)
   if (learnerSubmissions[i].submission.score >= 0) {
 
-    
+
 
     
     students["grades"] =
@@ -90,19 +91,30 @@ for (i = 0; i < learnerSubmissions.length; i++)
     if ( learnerSubmissions[i].submission.score >= 0)
     allGrades.push(learnerSubmissions[i].submission.score / AssignmentGroup.assignments[0].points_possible)
 
+    
+
+    let sum = 0;
+    for (let i = 0; i < allGrades.length; i++) {
+     sum += allGrades[i];
+}
+    const avg = sum / allGrades.length
+
+    students['average'] = avg
+  
+
+
+
     console.log(students);
-    console.log(allGrades);
+    // // console.log(allGrades);
   }
 
 
 
 
-// // }
+// }
 
 
   
 
 
 // ============== third attempt
-
-
